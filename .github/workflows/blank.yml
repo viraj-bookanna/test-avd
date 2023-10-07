@@ -36,4 +36,4 @@ jobs:
           docker exec android_container adb shell monkey -p com.jym.socketserver -c android.intent.category.LAUNCHER
           docker exec android_container adb forward tcp:34500 tcp:8888
           docker run -p 8888:8888 myapp-image
-          curm -x socks5://localhost:8888 https://api.myip.com
+          curl -x socks5://localhost:8888 https://api.myip.com
