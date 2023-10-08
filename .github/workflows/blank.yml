@@ -22,6 +22,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: step1
         run: |
+          sudo modprobe kvm_amd
+          sudo chmod 666 /dev/kvm
           sudo apt install cpu-checker
           kvm-ok
           docker run -d -p 6080:6080 -e EMULATOR_DEVICE="Samsung Galaxy S10" -e WEB_VNC=true --device /dev/kvm --name android_container budtmo/docker-android:emulator_11.0
